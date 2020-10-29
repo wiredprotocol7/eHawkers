@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Grocery</title>
+
+       {% load static %}
+    <link rel = "icon" href ="{% static 'img/onion.png' %}"
+        type = "image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/myshop.css' %}">
+     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,400,700" rel="stylesheet">
+
+
+</head>
+<body>
+ <nav>
+    <ul>
+      <li><a href="#" title="Contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header>
+      <h1><b>CATALOGUE</b></h1>
+  </header>
+  <div class="flex">
+
+       <form action="" method="post" id="">
+        <fieldset>
+            <img src="https://static.pexels.com/photos/191160/pexels-photo-191160-medium.jpeg" alt="Some Old Polaroid Camera" />
+          <input type="text" id="item_name" name="item_name" placeholder="Item Name">
+          <input type="text" id="desc" name="desc" placeholder="Description">
+
+          <input type="text" id="price" name="price" placeholder="Price in Rupees">
+            <input type="radio" id="stock" name="stock" placeholder="In stock?">
+            <label for="stock">In Stock?</label>
+            <input type="url" id="img_url" name=img_url" placeholder="New Image Url">
+        <button type="submit">UPDATE!</button>
+        </fieldset>
+       </form>
+  </div>
+</body>
+</html>

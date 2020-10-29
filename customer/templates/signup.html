@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Grocery</title>
+
+       {% load static %}
+    <link rel = "icon" href ="{% static 'img/onion.png' %}"
+        type = "image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+
+
+</head>
+<body>
+ <form action="welcome" method="post">
+          {% csrf_token %}
+        <h1>Sign Up</h1>
+
+        <fieldset>
+          <label for="name">Username:</label>
+          <input type="text" id="name" name="user_name">
+
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email">
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password">
+
+        <button type="submit">Sign Up</button>
+        </fieldset>
+      </form>
+
+</body>
+</html>
+
+<!-- Thanks to https://codepen.io/anandaprojapati/pen/GmrwYE-->

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Grocery</title>
+
+       {% load static %}
+    <link rel = "icon" href ="{% static 'img/onion.png' %}"
+        type = "image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+
+
+</head>
+<body>
+ <form action="myshop" method="post">
+          {% csrf_token %}
+        <h1>Register!</h1>
+
+        <fieldset>
+          <label for="name">Shopname:</label>
+          <input type="text" id="name" name="user_name">
+
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email">
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password">
+            <input type="password" placeholder="Confirm Password" id="confirm_password" required>
+
+          <label for ="url">Image Link</label>
+            <input type="url" id="url" name=img_url">
+            <label for ="loc">Location</label>
+           <input type="text" id="loc" name="loc" onclick="getLocation()" placeholder="Click to share your location. Please be at your shop." readonly required>
+        <button type="submit">Register</button>
+        </fieldset>
+      </form>
+<script>
+    var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
+</script>
+<script>
+    var x = document.getElementById("loc");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+}
+
+function showPosition(position) {
+  x.value = position.coords.latitude +
+  "," + position.coords.longitude;
+}
+</script>
+</body>
+</html>
+
+<!-- Thanks to https://codepen.io/anandaprojapati/pen/GmrwYE -->

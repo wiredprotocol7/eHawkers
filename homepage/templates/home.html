@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Grocery</title>
+
+       {% load static %}
+    <link rel = "icon" href ="{% static 'img/onion.png' %}"
+        type = "image/x-icon">
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+</head>
+<body>
+<h1 style="max-height:10%">You are: </h1>
+<div class="container">
+    <div class="leftpanel" id="left">
+        <div id="buyerpanel" style="display: block;">
+                    <form action="">
+                    <img name="buyerricon" onclick="myFunctionbuyer()" src="https://i.ibb.co/gwJRxb7/buyer.png" />
+                    </form>
+        </div>
+                            <div class="cont">
+          <div class="form" id="testone" style="display:none ;">
+
+                <form action="/customer/welcome" method="post" id="loginformbuyer">
+                    {% csrf_token %}
+                  <h1>Customer</h1>
+                  <input type="text"
+                         id="buyerid"
+                         class="user"
+                         name="buyerid"
+                         placeholder="Username"/>
+                  <input type="password"
+                         class="pass"
+                         name="buyerpass"
+                         id="buyerpass"
+                         placeholder="Password"/>
+                  <button                class="login">Login</button>
+                    <button class="login"  formaction="/customer/signup">Sign Up!</button>
+                </form>
+              </div>
+              <script type="">
+                 z=document.getElementById("testone")
+
+                                  function myFunctionbuyer() {z.style.display="block";
+                                  document.getElementById("buyerpanel").style.display="none";
+                                  document.getElementById("left").style.backgroundColor="#fff1d0";}
+
+
+              </script>
+      </div>
+
+
+</div>
+      <div class='rightpanel' id="right">
+           <div id="sellerpanel" style="display: block;">
+                  <form action="">
+                <img id="formseller"  onclick="myFunctionseller()" style="margin-left: 20%" name="sellericon" src="https://i.ibb.co/VwPrQBc/seller.png" />
+                  </form>
+           </div>
+         <div class="cont">
+          <div class="form" id="test" style="display:none ;">
+
+                <form action="/seller/profile" method="post" id="loginformseller">
+                    {% csrf_token %}
+                  <h1>Partner</h1>
+                  <input type="text"
+                         class="user"
+                         name="sellerid"
+                         id="sellerid"
+                         placeholder="Username"/>
+                  <input type="password"
+                         class="pass"
+                         name="sellerpass"
+                         id="sellerpass"
+                         placeholder="Password"/>
+                  <button                class="login">Login</button>
+                    <button class="login"  formaction="/seller/register">Register</button>
+                </form>
+              </div>
+              <script type="">
+                 y=document.getElementById("test")
+
+                                  function myFunctionseller() {y.style.display="block";
+                                  document.getElementById("sellerpanel").style.display="none";
+                                  document.getElementById("right").style.backgroundColor="#fff1d0";}
+
+
+              </script>
+      </div>
+      </div>
+</div>
